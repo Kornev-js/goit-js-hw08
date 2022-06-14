@@ -29,6 +29,8 @@ function createPicMarkup (pics){
 
 }
 
-new simpleLightbox(".gallery__link",{captionType : "alt"});
+new simpleLightbox(".gallery__link",{
+  captionsData : 'alt',
+  captionDelay: 250,
+});
 
-console.log(simpleLightbox);
