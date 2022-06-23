@@ -6,10 +6,10 @@ const player = new Vimeo.Player(iframe);
 
 const onPlay = function (data) {
     
-  const strigifyData = JSON.stringify(data);
   
  
-  localStorage.setItem(TIME_KEY, strigifyData);
+ 
+  localStorage.setItem(TIME_KEY, JSON.stringify(data.seconds));
   
   
 };
@@ -19,7 +19,7 @@ function resumePlayback() {
   if (JSON.parse(localStorage.getItem(TIME_KEY)) === null) {
     return;
   }
-  const paused = JSON.parse(localStorage.getItem(TIME_KEY))['seconds'];
+  const paused = JSON.parse(localStorage.getItem(TIME_KEY));
   if (paused) {
     player
       .setCurrentTime(paused)
